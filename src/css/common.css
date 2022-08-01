@@ -16,3 +16,34 @@ img {
   display: block;
   max-width: 100%;
 }
+
+/* .timer {
+  background-color: rgb(207, 183, 166);
+} */
+
+.field {
+  display: inline-block;
+  text-align: center;
+  border: 1px;
+  background-color: rgb(197, 238, 209);
+  width: 44px;
+  height: 50px;
+ 
+}
+
+.label {
+  display: block;
+  font-size: 12px;
+  
+}
+
+.value {
+font-size: 22px;
+text-align: center;
+background-color: rgb(106, 234, 145);
+}
+
+[data-start] {
+  background-color: rgb(106, 234, 145);
+}
+
