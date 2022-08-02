@@ -27,13 +27,15 @@ img {
   border: 1px;
   background-color: rgb(197, 238, 209);
   width: 44px;
-  height: 50px;
+  height: 58px;
+padding-top: 10px;
  
 }
 
 .label {
   display: block;
   font-size: 12px;
+ 
   
 }
 
