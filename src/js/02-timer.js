@@ -10,8 +10,10 @@ const hoursTimer = document.querySelector('span[data-hours]');
 const minutesTimer = document.querySelector('span[data-minutes]');
 const secondsTimer = document.querySelector('span[data-seconds]');
 const startButton = document.querySelector('button[data-start]');
+const input = document.querySelector('#datetime-picker');
 
 startButton.disabled = false;
+input.disabled = false;
 
 const options = {
   enableTime: true,
@@ -24,12 +26,17 @@ const options = {
       Notify.warning("Please choose a date in the future");
     }
     startButton.addEventListener('click', () => {
-      setInterval(() => {
-        const deadlineTime = selectedDates[0]- Date.now();
-        const timer = convertMs(deadlineTime);
-        console.log(timer);
+      const timerClock = setInterval(() => {
+        const deadlineTime = selectedDates[0] - Date.now();
+        if (deadlineTime >= 0) {
+          const timer = convertMs(deadlineTime);
+          console.log(timer);
+        } else {
+          clearInterval(timerClock)
+        }
       }, 1000);
       startButton.disabled = true;
+      input.disabled = true;
       
     });      
   },
@@ -56,7 +63,5 @@ function convertMs(ms) {
   minutesTimer.textContent = minutes;
   const seconds = addLeadingZero(Math.floor((((ms % day) % hour) % minute) / second));
   secondsTimer.textContent = seconds;
-  return { days, hours, minutes, seconds };
-}
-
-console.log(convertMs(2000));
+    return { days, hours, minutes, seconds }
+  } 
